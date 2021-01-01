@@ -1,0 +1,9 @@
+venv/
+.venv/
+env/
+.env/
+.env
+.vscode/
+scratch_mlp/
+.ipynb_checkpoints/
+__pycache__/
