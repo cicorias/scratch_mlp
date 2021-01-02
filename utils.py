@@ -68,9 +68,8 @@ def plot_function(losses, save_filepath=None, ylabel=None, title=None):
         plt.savefig(save_filepath)
     plt.close()
 
-def make_gif(input_folder, save_filepath):
+def make_gif(input_folder, save_filepath, time_per_step=0.25):
     episode_frames = []
-    time_per_step = 0.25
     for root, _, files in os.walk(input_folder):
         file_paths = [os.path.join(root, file) for file in files]
         #sorted by modified time
@@ -79,8 +78,7 @@ def make_gif(input_folder, save_filepath):
     episode_frames = np.array(episode_frames)
     imageio.mimsave(save_filepath, episode_frames, duration=time_per_step)
 
-def make_all_gif(input_folder, save_filepath):
-    time_per_step = 0.25
+def make_all_gif(input_folder, save_filepath, time_per_step=0.25):
     for root, _, files in os.walk(os.path.join(input_folder, 'accuracy')):
         file_paths = [os.path.join(root, file) for file in files]
         #sorted by modified time
